@@ -19,23 +19,14 @@ export class App extends Component {
   };
   onSubmit = data => {
     this.setState({ ...data,            
-      // hits: [],
       page: 1,
       erorrMessedge: '',
 });
   };
   async componentDidUpdate(prevProps, prevState) {
     if (prevState.searchQuery !== this.state.searchQuery) {
-      this.setState(
-        {
-          hits: [],
-          // page: 1,
-          // erorrMessedge: '',
-        },
-        () => {
+      this.setState({hits:[]})
           this.fetchImages();
-        }
-      );
     }
     if (prevState.page !== this.state.page) {
       this.fetchImages();
