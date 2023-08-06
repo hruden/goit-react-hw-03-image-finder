@@ -18,15 +18,19 @@ export class App extends Component {
     erorrMessedge: '',
   };
   onSubmit = data => {
-    this.setState({ ...data });
+    this.setState({ ...data,            
+      // hits: [],
+      page: 1,
+      erorrMessedge: '',
+});
   };
   async componentDidUpdate(prevProps, prevState) {
     if (prevState.searchQuery !== this.state.searchQuery) {
       this.setState(
         {
           hits: [],
-          page: 1,
-          erorrMessedge: '',
+          // page: 1,
+          // erorrMessedge: '',
         },
         () => {
           this.fetchImages();
